@@ -22,7 +22,7 @@ const config = {
 app.get('/api/data', async (req, res) => {
   try {
     await sql.connect(config);
-    const result = await sql.query('SELECT TOP 10 * FROM  AI3_4DR_TRUNK_LID_LINE');
+    const result = await sql.query('SELECT * FROM  AI3_4DR_TRUNK_LID_LINE');
     res.json(result.recordset);
   } catch (err) {
     console.error(err);
@@ -32,3 +32,4 @@ app.get('/api/data', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`API running on port ${PORT}`));
+
